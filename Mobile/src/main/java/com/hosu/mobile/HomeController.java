@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * Handles requests for the application home page...
+ * Handles requests for the application home page...dd
  */
 @Controller
 public class HomeController {
@@ -32,7 +32,8 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
-		model.addAttribute("test", "Hello" );
+		model.addAttribute("param2", "Hello" );
+		model.addAttribute("param3", "Hello" );
 		
 		return "home";
 	}
