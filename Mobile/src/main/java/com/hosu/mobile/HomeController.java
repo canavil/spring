@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * Handles requests for the application home page...dd
+ * Handles requests for the application home page...dd 4차수정
  */
 @Controller
 public class HomeController {
