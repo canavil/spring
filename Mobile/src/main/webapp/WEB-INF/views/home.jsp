@@ -12,6 +12,10 @@
 <P>  The time on the server is ${serverTime}. </P>
 
 
+<P> ${param1}. </P>
+<P> ${param2}. </P>
+
+
 <P>  this test page - sahara----{test} world!!! </P>
 <P>  jenkins test - by sahara mobileddd </P>
 </body>
