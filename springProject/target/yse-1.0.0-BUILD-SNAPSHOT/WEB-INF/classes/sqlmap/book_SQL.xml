@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="book">
+
+	<!-- insert query -->
+	<insert id="insertDB" parameterType="hashMap" useGeneratedKeys="true" keyProperty="book_id">  
+	    <![CDATA[
+	    insert into book
+	    (title, category, price) 
+	    values
+	    (#{title}, #{category}, #{price})
+	    ]]>
+	</insert>
+
+
+	<!-- select query -->
+	<select id="selectDB" parameterType="hashMap" resultType="hashMap">  
+		 <![CDATA[
+		        select
+		        title,
+		        category,
+		        price,
+		 insert_date
+		        from
+		        book
+		        where
+		        book_id = #{bookId}   
+		 ]]>
+	</select>
+	
+	
+	<!-- update query -->	
+	<update id="updateDB" parameterType="hashMap">  
+		<![CDATA[  
+		update book set  
+			title = #{title},  
+			category = #{category},  
+			price = #{price}  
+		where  
+			book_id = #{bookId}  
+		]]>  
+	</update>
+
+	<!-- Delete query -->	
+	<delete id="deleteDB" parameterType="hashMap">  
+		<![CDATA[  
+		delete from book  
+		where  
+		book_id = #{bookId}  
+		]]>  
+	</delete>  
+	
+
+
+
+	<!-- Search query -->	
+	<select id="select_list" parameterType="hashMap" resultType="hashMap">
+	  <![CDATA[
+	    select
+	    book_id,
+	    title,
+	    category,
+	    price,
+	    insert_date
+	    from
+	    book
+	    where 1 = 1
+	    ]]>
+	    <if test="keyword != null and keyword != ''">
+	      and (title like CONCAT('%',#{keyword},'%') or category like CONCAT('%',#{keyword},'%'))
+	    </if>
+	    order by insert_date desc
+	</select>
+</mapper>
