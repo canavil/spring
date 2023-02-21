@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+
+	<!-- insert query -->
+	<insert id="memberSave" parameterType="hashMap" useGeneratedKeys="true">  
+	    <![CDATA[
+	    insert into tbmember
+	    (userid, korname, passwd, useYN) 
+	    values
+	    (#{userid}, #{korname}, #{passwd}, 'Y')
+	    ]]>
+	</insert>
+
+
+	<!-- memberView -->
+	<select id="memberLogin" parameterType="hashMap" resultType="hashMap">  
+		 <![CDATA[
+			SELECT
+		         korname, userid, passwd,rdate 
+		 	  FROM TBMEMBER
+		 	  WHERE
+		        userid = #{userid}
+		        AND
+		        passwd = #{passwd}    
+		 ]]>
+	</select>
+
+	<!-- memberView -->
+	<select id="memberView" parameterType="hashMap" resultType="hashMap">  
+		 <![CDATA[
+			SELECT
+		         korname, userid, passwd,rdate 
+		 	  FROM TBMEMBER
+		 	  WHERE
+		        userid = #{userid}   
+		 ]]>
+	</select>
+	
+	<!-- memberExist -->
+	<select id="memberIdCheck" parameterType="hashMap" resultType="hashMap">  
+		 <![CDATA[
+			SELECT
+		         COUNT(userid) 'idchk'
+		 	  FROM TBMEMBER
+		 	  WHERE
+		        userid = #{userid}   
+		 ]]>
+	</select>	
+	
+
+	
+</mapper>
