@@ -28,7 +28,7 @@ public class mainController {
 		mav.addObject("data", list);
 		mav.setViewName("/index");
 		
-		System.out.println("sahara: "+list);
+		System.out.println("sahara:   "+list);
 		
 		
 		return mav;   
